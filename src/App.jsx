@@ -1,9 +1,11 @@
-import Counter from "./components/Counter";
+// import Counter from "./components/Counter";
 
 const App = () => {
   return (
-    <div className="w-full h-screen">
-      <Counter />
+    <div className="w-full h-screen bg-zinc-900 text-white">
+      <h1 className="text-2xl font-bold">
+        
+      </h1>
     </div>
   )
 }
