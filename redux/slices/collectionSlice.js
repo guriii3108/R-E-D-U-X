@@ -24,6 +24,10 @@ const connectionSlice = createSlice({
             );
             localStorage.setItem("collection", JSON.stringify(state.items));
         },
+        clearCollection: (state) => {
+            state.items = [];
+            localStorage.removeItem("collection");
+        },
         addedToast: (state) => {
             toast.success("Added to collection", {
                 position: "bottom-right",
@@ -50,13 +54,29 @@ const connectionSlice = createSlice({
                 transition: Flip,
             });
         },
+        clearCollectionToast: (state) => {
+            toast.error("Collection cleared", {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Flip,
+            });
+        },
     },
 });
 
 export const {
     addCollection,
     removeCollection,
+    clearCollection,
     addedToast,
     removedToast,
+    clearCollectionToast,
 } = connectionSlice.actions;
+
 export default connectionSlice.reducer;

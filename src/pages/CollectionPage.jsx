@@ -2,12 +2,22 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CollectionCard from '../components/CollectionCard'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { clearCollection, clearCollectionToast } from "../../redux/slices/collectionSlice.js"
 
 const CollectionPage = () => {
+  const dispatch = useDispatch()
+
   const collection = useSelector((state) => state.collection.items)
+  const clearFullCollection = () => {
+    dispatch(clearCollection())
+    dispatch(clearCollectionToast())
+  }
 
   return (
     <div className="min-h-screen w-full bg-zinc-950 text-white font-sans selection:bg-cyan-500/30 py-10">
+
+
 
       {/* Navigation - Glass Header */}
       <div className="flex justify-center mb-12">
